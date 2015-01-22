@@ -12,7 +12,7 @@ printf "\n"
 
 while (($INDEX < $HEIGHT)); do
     # Render the left side.
-    repeat-string "[]" 1
+    repeat-string "#" 1
     indent-string $OFFSET 1
 
     # Render the right side.
@@ -23,7 +23,7 @@ while (($INDEX < $HEIGHT)); do
 done
 
 # Render the lower side.
-repeat-string "[]" $WIDTH
+repeat-string "=" $(($WIDTH*2-1))
 indent-string $OFFSET
 
 printf "\n"

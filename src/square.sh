@@ -8,7 +8,7 @@ SIDE=20
 printf "\n"
 
 # Render the upper side.
-repeat-string "[]" $SIDE
+repeat-string "##" $(($SIDE-1))
 indent-string $(($SIDE/2))
 
 INDEX=0
@@ -16,7 +16,7 @@ INDEX=0
 while (($(($SIDE-2)) > $INDEX)); do
     # Render sides.
     repeat-string " " $(($SIDE*2-4))
-    repeat-string "[]${BUFFER}[]" 1
+    repeat-string "#${BUFFER}#" 1
 
     indent-string $(($SIDE/2))
 
@@ -24,7 +24,7 @@ while (($(($SIDE-2)) > $INDEX)); do
 done
 
 # Render the lower side.
-repeat-string "[]" $SIDE
+repeat-string "##" $(($SIDE-1))
 indent-string $(($SIDE/2))
 
 # One more new line.

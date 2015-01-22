@@ -18,7 +18,7 @@ while (($INDEX < $SIDE)); do
     INDEX=$(($INDEX+1))
 done
 
-repeat-string "=" $(($SIDE*2))
+repeat-string "==" $SIDE # Nobody will ever notice.
 indent-string $(($OFFSET+1))
 
 printf "\n"
