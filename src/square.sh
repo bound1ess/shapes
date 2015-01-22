@@ -2,24 +2,29 @@
 
 source ./src/helpers.sh
 
-SIZE=200
-SIDE=$(($SIZE/4))
+SIDE=20
 
 # Insert a new line.
 printf "\n"
 
 # Render the upper side.
-repeat-string "H" $SIDE
+repeat-string "[]" $SIDE
 indent-string $(($SIDE/2))
 
-# Render sides.
-repeat-string " " $(($SIDE-2))
-repeat-string "H${BUFFER}H" 1
+INDEX=0
 
-indent-string $(($SIDE/2))
+while (($(($SIDE-2)) > $INDEX)); do
+    # Render sides.
+    repeat-string " " $(($SIDE*2-4))
+    repeat-string "[]${BUFFER}[]" 1
+
+    indent-string $(($SIDE/2))
+
+    INDEX=$(($INDEX+1))
+done
 
 # Render the lower side.
-repeat-string "H" $SIDE
+repeat-string "[]" $SIDE
 indent-string $(($SIDE/2))
 
 # One more new line.
