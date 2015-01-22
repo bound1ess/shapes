@@ -9,7 +9,7 @@ indent-string() {
 
 # Usage: repeat-string [string] [times] (eg. repeat-string "foo" 42).
 repeat-string() {
-    BUFFER=$(head -c $2 < /dev/zero | tr "\0" "$1")
+    BUFFER=$(head -c $2 < /dev/zero | sed "s/\x0/$1/g")
 }
 
 ELEMENTS=()
