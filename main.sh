@@ -7,4 +7,4 @@ source ./selectable.sh
 printf "\ec"
 
 # Include the appropriate source file.
-source "./src/$(tr " " "_" <<< ${SHAPE,,}).sh"
+source "./src/$(tr " " "-" <<< ${SHAPE,,}).sh"
