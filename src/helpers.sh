@@ -4,7 +4,11 @@ BUFFER=""
 
 # Usage: indent-string [number of spaces] (eg. indent-string 10).
 indent-string() {
-    echo "$BUFFER" | sed "s/^/$(head -c $1 < /dev/zero | tr '\0' '\040')/"
+    if [ $# == 2 ]; then
+        echo -n "$BUFFER" | sed "s/^/$(head -c $1 < /dev/zero | tr '\0' '\040')/"
+    else
+        echo "$BUFFER" | sed "s/^/$(head -c $1 < /dev/zero | tr '\0' '\040')/"
+    fi
 }
 
 # Usage: repeat-string [string] [times] (eg. repeat-string "foo" 42).
@@ -25,6 +29,8 @@ populate-elements-array() {
     local INDEX=0
     
     while (($INDEX < $SIZE)); do
-        ELEMENTS[$INDEX]="$1"
+        ELEMENTS[$INDEX]=""
+
+        INDEX=$(($INDEX+1))
     done
 }
